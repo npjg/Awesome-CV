@@ -401,9 +401,9 @@
 % Others
 \newcommand{\acvSectionTopSkip}{3mm}
 \newcommand{\acvSectionContentTopSkip}{2.5mm}
-\newcommand{\acvItemsBetweenParSkip}{3.8pt}
+\newcommand{\acvItemsBetweenParSkip}{4pt}
 \newcommand{\acvItemsBeforeStartSkip}{3pt}
-\newcommand{\acvCvAfterEntrySkip}{2pt}
+\newcommand{\acvCvAfterEntrySkip}{6pt}
 
 
 %-------------------------------------------------------------------------------
@@ -615,7 +615,7 @@
          \entrypositionstyle{#1} & \ifempty{#3}{}{\entrydatestyle{#4}} \\}
     \multicolumn{2}{L{\textwidth}}}{\descriptionstyle{#5}}
   \end{tabular*}%
-  \vspace{\acvCvAfterEntrySkip{2pt}
+  \vspace{\acvCvAfterEntrySkip}
 }
 
 % Define an environment for cvsubentry
@@ -696,12 +696,12 @@
 % Item Usage: \item[<columns>]{<label>}{<data>}
 \newenvironment{cvlabeleditems}{%
   \vspace{-4.0mm}
-  \renewcommand{\item}[3][1]{\multirow{##1}{*}{##2} & \multicolumn{1}{p{14cm}}{##3} \vspace{\acvItemsParSkip}\\}
+  \renewcommand{\item}[3][1]{\multirow{##1}{*}{##2} & \multicolumn{1}{p{14cm}}{##3} \vspace{\acvItemsBetweenParSkip}\\}
   \begin{tabular}{ @{} >{\scshape}l @{\hspace{2ex}}l }
     \noalign{\vskip \acvItemsBeforeStartSkip}
     }{%
+    \noalign{\vskip \acvCvAfterEntrySkip}
   \end{tabular}
-  \noalign{\vskip 0.7mm}
 }
 
 %-------------------------------------------------------------------------------
