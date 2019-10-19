@@ -400,6 +400,7 @@
 \newcommand{\acvSectionTopSkip}{3mm}
 \newcommand{\acvSectionContentTopSkip}{2.5mm}
 \newcommand{\acvItemsBetweenParSkip}{3.8pt}
+\newcommand{\acvItemsBeforeStartSkip}{3pt}
 
 
 %-------------------------------------------------------------------------------
@@ -677,6 +678,7 @@
   \begin{justify}
     \begin{itemize}[leftmargin=2ex, nosep, noitemsep]
       \setlength{\parskip}{\acvItemsBetweenParSkip}
+      \vspace{\acvItemsBeforeStartSkip}
       \renewcommand{\labelitemi}{\bullet}
     }{%
     \end{itemize}
@@ -690,7 +692,7 @@
   \vspace{-4.0mm}
   \renewcommand{\item}[3][1]{\multirow{##1}{*}{##2} & \multicolumn{1}{p{14cm}}{##3} \vspace{\acvItemsParSkip}\\}
   \begin{tabular}{ @{} >{\scshape}l @{\hspace{2ex}}l }
-    \noalign{\vskip 2mm}
+    \noalign{\vskip \acvItemsBeforeStartSkip}
     }{%
   \end{tabular}
   \noalign{\vskip 0.7mm}
