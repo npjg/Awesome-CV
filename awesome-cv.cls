@@ -240,16 +240,18 @@
 %                Commands for personal information
 %-------------------------------------------------------------------------------
 % Define photo ID
-% Usage: \photo[circle|rectangle,edge|noedge,left|right]{<path-to-image>}
-\newcommand{\photo}[2][circle,edge,left]{%
+% Usage: \photo[circle|rectangle,edge|noedge,left|right]{<path-to-image>}{<photo-size>}
+\newcommand{\photo}[3][circle,edge,left]{%
   \def\@photo{#2}
+  \newlength{\@photodim}
+  \setlength{\@photodim}{#3}
   \@for\tmp:=#1\do{%
     \ifthenelse{\equal{\tmp}{circle} \or \equal{\tmp}{rectangle}}%
-      {\let\@photoshape\tmp}{}%
+    {\let\@photoshape\tmp}{}%
     \ifthenelse{\equal{\tmp}{edge} \or \equal{\tmp}{noedge}}%
-      {\let\@photoedge\tmp}{}%
+    {\let\@photoedge\tmp}{}%
     \ifthenelse{\equal{\tmp}{left} \or \equal{\tmp}{right}}%
-      {\let\@photoalign\tmp}{}%
+    {\let\@photoalign\tmp}{}%
   }%
 }
 \def\@photoshape{circle}
@@ -429,11 +431,11 @@
     \ifthenelse{\isundefined{\@photo}}{}{%
       \newlength{\photodim}
       \ifthenelse{\equal{\@photoshape}{circle}}%
-        {\setlength{\photodim}{1.3cm}}%
-        {\setlength{\photodim}{1.8cm}}%
+      {\setlength{\photodim}{\@photodim}}%
+      {\setlength{\photodim}{\@photodim + 0.5cm}}%
       \ifthenelse{\equal{\@photoedge}{edge}}%
-        {\def\@photoborder{darkgray}}%
-        {\def\@photoborder{none}}%
+      {\def\@photoborder{darkgray}}%
+      {\def\@photoborder{none}}%
       \begin{tikzpicture}%
         \node[\@photoshape, draw=\@photoborder, line width=0.3mm, inner sep=\photodim, fill overzoom image=\@photo] () {};
       \end{tikzpicture}
