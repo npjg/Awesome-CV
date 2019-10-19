@@ -80,6 +80,8 @@
 \RequirePackage[skins]{tcolorbox}
 % Needed to deal a paragraphs
 \RequirePackage{parskip}
+% Needed to use the new labeled item env
+\RequirePackage{multirow}
 % Needed to deal hyperlink
 \RequirePackage[hidelinks,unicode]{hyperref}
 \hypersetup{%
@@ -682,6 +684,17 @@
   \vspace{-4.0mm}
 }
 
+% Define an environment for cvlabeleditems(for cventry)
+% Item Usage: \item[<columns>]{<label>}{<data>}
+\newenvironment{cvlabeleditems}{%
+  \vspace{-4.0mm}
+  \renewcommand{\item}[3][1]{\multirow{##1}{*}{##2} & \multicolumn{1}{p{14cm}}{##3} \vspace{\acvItemsParSkip}\\}
+  \begin{tabular}{ @{} >{\scshape}l @{\hspace{2ex}}l }
+    \noalign{\vskip 2mm}
+    }{%
+  \end{tabular}
+  \noalign{\vskip 0.7mm}
+}
 
 %-------------------------------------------------------------------------------
 %                Commands for elements of Cover Letter
