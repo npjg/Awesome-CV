@@ -401,6 +401,7 @@
 \newcommand{\acvSectionContentTopSkip}{2.5mm}
 \newcommand{\acvItemsBetweenParSkip}{3.8pt}
 \newcommand{\acvItemsBeforeStartSkip}{3pt}
+\newcommand{\acvCvAfterEntrySkip}{2pt}
 
 
 %-------------------------------------------------------------------------------
@@ -612,6 +613,7 @@
          \entrypositionstyle{#1} & \ifempty{#3}{}{\entrydatestyle{#4}} \\}
     \multicolumn{2}{L{\textwidth}}}{\descriptionstyle{#5}}
   \end{tabular*}%
+  \vspace{\acvCvAfterEntrySkip{2pt}
 }
 
 % Define an environment for cvsubentry
