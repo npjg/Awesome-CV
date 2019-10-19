@@ -404,6 +404,7 @@
 \newcommand{\acvItemsBetweenParSkip}{4pt}
 \newcommand{\acvItemsBeforeStartSkip}{3pt}
 \newcommand{\acvCvAfterEntrySkip}{6pt}
+\newcommand{\acvItemsLeftMargin}{3ex}
 
 
 %-------------------------------------------------------------------------------
@@ -682,7 +683,7 @@
 \newenvironment{cvitems}{%
   \vspace{-4.0mm}
   \begin{justify}
-    \begin{itemize}[leftmargin=2ex, nosep, noitemsep]
+    \begin{itemize}[leftmargin=\acvItemsLeftMargin, nosep, noitemsep]
       \setlength{\parskip}{\acvItemsBetweenParSkip}
       \vspace{\acvItemsBeforeStartSkip}
       \renewcommand{\labelitemi}{\bullet}
