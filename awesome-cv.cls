@@ -405,6 +405,7 @@
 \newcommand{\acvItemsBeforeStartSkip}{3pt}
 \newcommand{\acvCvAfterEntrySkip}{6pt}
 \newcommand{\acvItemsLeftMargin}{3ex}
+\newcommand{\acvEntryExtraRowHeight}{2pt}
 
 
 %-------------------------------------------------------------------------------
@@ -606,7 +607,7 @@
 \newcommand*{\cventry}[5]{%
   \vspace{-2.0mm}
   \setlength\tabcolsep{0pt}
-  \setlength{\extrarowheight}{0pt}
+  \setlength{\extrarowheight}{\acvEntryExtraRowHeight}
   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
     \ifempty{#2#3}
       {\entrypositionstyle{#1} & \entrydatestyle{#4} \\}
