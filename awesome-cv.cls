@@ -96,9 +96,8 @@
 %                Configuration for directory locations
 %-------------------------------------------------------------------------------
 % Configure a directory location for fonts(default: 'fonts/')
-\newcommand*{\fontdir}[1][fonts/]{\def\@fontdir{#1}}
-\fontdir
-
+\newcommand*{\fontdir}[1]{\def\@fontdir{#1}}
+\fontdir{}
 
 %-------------------------------------------------------------------------------
 %                Configuration for layout
@@ -178,23 +177,26 @@
 %                Configuration for fonts
 %-------------------------------------------------------------------------------
 % Set the FontAwesome font to be up-to-date.
-\setfontfamily\FA[Path=\@fontdir]{FontAwesome}
 % Set font for header (default is Roboto)
-\newfontfamily\headerfont[
+\ifempty{\@fontdir}{
+  \newcommand*{\headerfont}{\sourcesanspro}
+  \newcommand*{\headerfontlight}{\sourcesansprolight}
+}{
+  \setfontfamily\FA[Path=\@fontdir]{FontAwesome}
+  \newfontfamily\headerfont[
   Path=\@fontdir,
   UprightFont=*-Regular,
   ItalicFont=*-Italic,
   BoldFont=*-Bold,
   BoldItalicFont=*-BoldItalic,
-]{Roboto}
-
-\newfontfamily\headerfontlight[
+  ]{Roboto}
+  \newfontfamily\headerfontlight[
   Path=\@fontdir,
   UprightFont=*-Thin,
   ItalicFont=*-ThinItalic,
   BoldFont=*-Medium,
   BoldItalicFont=*-MediumItalic,
-]{Roboto}
+  ]{Roboto}}
 
 \newcommand*{\footerfont}{\sourcesanspro}
 \newcommand*{\bodyfont}{\sourcesanspro}
